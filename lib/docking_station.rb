@@ -7,7 +7,12 @@ class DockingStation
   end
 
   def dock_a_bike(bike = Bike.new())
-    @bikes << bike
+    if @bikes.size == 1
+      raise ArgumentError, "dock full"
+    else
+      @bikes << bike
+    end
+
   end
 
   def release_bike(bike = Bike.new())
@@ -29,4 +34,3 @@ class Bike
   end
 
 end
-dock = DockingStation.new()
