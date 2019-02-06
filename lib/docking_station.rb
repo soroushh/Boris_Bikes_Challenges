@@ -6,13 +6,18 @@ class DockingStation
     @bikes = []
   end
 
-  def dock_a_bike(bike)
+  def dock_a_bike(bike = Bike.new())
     @bikes << bike
   end
 
-  def release_bike(bike)
+  def release_bike(bike = Bike.new())
 
-    @bikes.delete(bike)
+    if @bikes.empty? == true
+      raise ArgumentError, "dock empty"
+    else
+      return bike
+    end
+
 
   end
 
@@ -24,3 +29,4 @@ class Bike
   end
 
 end
+dock = DockingStation.new()

@@ -15,4 +15,10 @@ describe DockingStation do
     dock = DockingStation.new()
     expect(dock.respond_to?(:dock_a_bike)).to eq true
   end
+  it "raising error" do
+    dock = DockingStation.new()
+    expect {dock.release_bike}.to  raise_error(ArgumentError, "dock empty")
+  end
+
+
 end
