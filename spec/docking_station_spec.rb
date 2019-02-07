@@ -24,6 +24,9 @@ describe DockingStation do
     20.times{ dock.dock_a_bike }
     expect {dock.dock_a_bike}.to  raise_error(ArgumentError, "dock full")
   end
+  it "Setting the capacity as an argument" do
+    dock = DockingStation.new(30)
+  end
 
 
 end
