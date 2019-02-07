@@ -1,4 +1,5 @@
 class DockingStation
+  DEFAULT_CAPACITY = 20
 
   attr_reader :bikes
 
@@ -7,25 +8,30 @@ class DockingStation
   end
 
   def dock_a_bike(bike = Bike.new())
-    if @bikes.size == 1
-      raise ArgumentError, "dock full"
-    else
-      @bikes << bike
-    end
+
+      if full?
+        raise ArgumentError, "dock full"
+      else
+        @bikes << bike
+      end
 
   end
 
-  def release_bike(bike = Bike.new())
-
-    if @bikes.empty? == true
+  def release_bike()
+    if empty?
       raise ArgumentError, "dock empty"
     else
-      return bike
+      @bikes.pop()
     end
-
-
+  end
+  def full?
+    (@bikes.size>=DEFAULT_CAPACITY)?true:false
   end
 
+  def empty?
+    (@bikes.size==0)?true:false
+  end
+  private :empty?,:full?
 end
 class Bike
 

@@ -21,7 +21,7 @@ describe DockingStation do
   end
   it "putting a bycicle to a full dock." do
     dock = DockingStation.new()
-    dock.dock_a_bike
+    20.times{ dock.dock_a_bike }
     expect {dock.dock_a_bike}.to  raise_error(ArgumentError, "dock full")
   end
 
