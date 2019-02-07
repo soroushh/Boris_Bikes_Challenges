@@ -35,6 +35,8 @@ class DockingStation
   private :empty?,:full?
 end
 class Bike
+  def initialize(status=true)
+  end
 
   def working?
 
